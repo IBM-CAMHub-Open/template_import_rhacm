@@ -38,8 +38,3 @@ Piror to deploying the template you must create the data objects for the followi
 | aws_region                      | Location (region / zone) where cluster is deployed in public cloud | true |
 | access\_key\_id                 | Key ID for gaining access to the cloud and Kubernetes Service | true |
 | secret\_access\_key             | Key secret for gaining access to the cloud and Kubernetes Service | true |
-| image_registry                  | URL for private docker registry from which klusterlet images will be pulled | |
-| image_suffix                    | Suffix (e.g. -amd64), corresponding to the platform type, to be appended to image name | |
-| image_version                   | Version/Tag (e.g 2.0.0 or latest) of the MCM image to be pulled | |
-| docker_user                     | Username for authenticating with the private docker registry | |
-| docker_password                 | Password for authenticating with the private docker registry | |

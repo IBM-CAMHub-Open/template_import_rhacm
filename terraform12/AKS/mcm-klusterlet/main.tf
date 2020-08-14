@@ -39,13 +39,6 @@ module "cluster-import" {
   cluster_name        = var.cluster_name
   cluster_credentials = module.cluster-credentials.credentials_jsonfile
 
-  ## If MCM image(s) are to be pulled from a private registry
-  image_registry  = var.image_registry
-  image_suffix    = var.image_suffix
-  image_version   = var.image_version
-  docker_user     = var.docker_user
-  docker_password = var.docker_password
-
   ## Access to optional bastion host
   bastion_host        = var.bastion_host
   bastion_user        = var.bastion_user

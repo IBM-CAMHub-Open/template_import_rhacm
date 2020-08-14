@@ -27,10 +27,6 @@
     {
       "name": "mcmhub",
       "label": "Red Hat OCP connection details of RHACM enabled IBM CP4MCM"
-    },
-    {
-      "name": "registry",
-      "label": "Private Image Registry"
     }
   ],
   "template_input_params": [
@@ -283,61 +279,6 @@
       "required": false,
       "immutable": false,
       "group_name": "kubecluster"
-    },
-    {
-      "name": "image_registry",
-      "type": "string",
-      "description": "URL for private docker registry from which klusterlet images will be pulled",
-      "hidden": false,
-      "label": "Image Registry",
-      "secured": false,
-      "required": false,
-      "immutable": false,
-      "group_name": "registry"
-    },
-    {
-      "name": "image_suffix",
-      "type": "string",
-      "description": "Suffix (e.g. platform type) to be appended to image name",
-      "hidden": false,
-      "label": "Image Suffix",
-      "secured": false,
-      "required": false,
-      "immutable": false,
-      "group_name": "registry"
-    },
-    {
-      "name": "image_version",
-      "type": "string",
-      "description": "Version (tag) of the MCM image to be pulled",
-      "hidden": false,
-      "label": "Image Version",
-      "secured": false,
-      "required": false,
-      "immutable": false,
-      "group_name": "registry"
-    },
-    {
-      "name": "docker_user",
-      "type": "string",
-      "description": "Username for authenticating with the private docker registry",
-      "hidden": false,
-      "label": "Docker User",
-      "secured": false,
-      "required": false,
-      "immutable": false,
-      "group_name": "registry"
-    },
-    {
-      "name": "docker_password",
-      "type": "string",
-      "description": "Password for authenticating with the private docker registry",
-      "hidden": false,
-      "label": "Docker Password",
-      "secured": true,
-      "required": false,
-      "immutable": false,
-      "group_name": "registry"
     }
   ],
   "template_output_params": []

@@ -32,8 +32,3 @@ Piror to deploying the template you must create the data objects for the followi
 | ocp_token						  | Token for connecting to the Red Hat OCP using oc login command. Must provide token or user/password. | true when ocp_user/ocp_password is not available |
 | cluster_name                    | Name of the target ROKS cluster within the IBM CP4MCM hub. Cluster name can have lower case alphabets, numbers and dash. Must start with lower case alphabet and end with alpha-numeric character. Maximum length is 63 characters. Defaults to input kubeconfig data object cluster name. | true |
 | cluster_config                  | kubectl configuration text, Base64 encoded | true |
-| image_registry                  | URL for private docker registry from which klusterlet images will be pulled | |
-| image_suffix                    | Suffix (e.g. -amd64), corresponding to the platform type, to be appended to image name | |
-| image_version                   | Version/Tag (e.g 2.0.0 or latest) of the MCM image to be pulled | |
-| docker_user                     | Username for authenticating with the private docker registry | |
-| docker_password                 | Password for authenticating with the private docker registry | |

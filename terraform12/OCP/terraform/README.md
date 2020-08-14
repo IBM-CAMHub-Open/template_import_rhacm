@@ -34,8 +34,3 @@ Piror to deploying the template you must create the data objects for the followi
 | ocp_oauth_url 				  | URL for target OCP OAUTH Server, for retrieving access token to OCP cluster | true |
 | ocp_admin_user                  | Username for connecting to the target OCP API server | true |
 | ocp_admin_password 			  | Password for connecting to the target OCP API server | true |
-| image_registry                  | URL for private docker registry from which klusterlet images will be pulled | |
-| image_suffix                    | Suffix (e.g. -amd64), corresponding to the platform type, to be appended to image name | |
-| image_version                   | Version/Tag (e.g 2.0.0 or latest) of the MCM image to be pulled | |
-| docker_user                     | Username for authenticating with the private docker registry | |
-| docker_password                 | Password for authenticating with the private docker registry | |
