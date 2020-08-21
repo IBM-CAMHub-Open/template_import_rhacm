@@ -20,7 +20,7 @@
     }
   },
   "metadata": {
-    "displaName": "Import Google Kubernetes Engine cluster into RHACM enabled IBM CP4MCM",
+    "displayName": "Import Google Kubernetes Engine cluster into RHACM enabled IBM CP4MCM",
     "providerDisplayName": "Other",
     "longDescription": "Imports a Google Kubernetes Engine cluster into IBM Cloud Pak for Multicloud Manager that is installed with Red Hat Advanced Cluster Management",
     "bullets": [
