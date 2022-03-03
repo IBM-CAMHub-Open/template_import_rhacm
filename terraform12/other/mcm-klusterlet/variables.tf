@@ -34,3 +34,7 @@ variable "cluster_token" {
   description = "Token for authenticating with the Kubernetes cluster"
 }
 
+variable "oc_cli_endpoint" {
+  description = "URL to download the oc cli from."
+  default = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
+}

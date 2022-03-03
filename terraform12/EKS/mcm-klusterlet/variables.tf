@@ -37,3 +37,7 @@ variable "secret_access_key" {
 variable "aws_region" {
   description = "The region in which the EKS cluster is deployed"
 }
+variable "oc_cli_endpoint" {
+  description = "URL to download the oc cli from."
+  default = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
+}

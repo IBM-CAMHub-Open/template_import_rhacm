@@ -29,3 +29,7 @@ variable "cluster_config" {
 variable "service_account_credentials" {
   description = "Credentials for service account used to access the cluster (Base64-encoded)"
 }
+variable "oc_cli_endpoint" {
+  description = "URL to download the oc cli from."
+  default = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
+}

@@ -25,3 +25,7 @@ variable "cluster_name" {
 variable "cluster_config" {
   description = "kubeconfig file contents (Base64 encoded) for Kubernetes cluster"
 }
+variable "oc_cli_endpoint" {
+  description = "URL to download the oc cli from."
+  default = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
+}

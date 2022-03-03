@@ -39,3 +39,7 @@ variable "ocp_admin_password" {
   description = "Password for connecting to the target OCP API server"
 }
 
+variable "oc_cli_endpoint" {
+  description = "URL to download the oc cli from."
+  default = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
+}

@@ -6,6 +6,10 @@
       "label": "Bastion Data"
     },
     {
+      "name": "general",
+      "label": "General"
+    },    
+    {
       "name": "kubeconfig",
       "label": "Kubernetes cluster data"
     },
@@ -96,6 +100,18 @@
       "secured": false,
       "required": false
     },
+    {
+      "name": "oc_cli_endpoint",
+      "type": "string",
+      "description": "URL to download the oc cli from. The file must be a tar or tar.gz file.",
+      "default": "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz",
+      "hidden": false,
+      "label": "URL to download the oc cli from",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "general"
+    },     
     {
       "name": "ocp_api_endpoint",
       "type": "string",

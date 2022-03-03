@@ -19,7 +19,7 @@ module "cluster-import" {
   ocp_password      = var.ocp_password
   ocp_ca_cert       = length(var.ocp_ca_cert) > 0 ? base64decode(var.ocp_ca_cert) : var.ocp_ca_cert
   ocp_token         = var.ocp_token
-
+  oc_cli_endpoint   = var.oc_cli_endpoint 
   ## Details for accessing and importing the target cluster
   cluster_name      = var.cluster_name
   cluster_endpoint  = var.cluster_endpoint
