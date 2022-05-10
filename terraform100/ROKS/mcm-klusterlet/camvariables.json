@@ -1,0 +1,204 @@
+{
+  "terraform_version": ">= 1.0.0",
+  "input_datatypes": [
+    {
+      "name": "bastionhost",
+      "label": "Bastion Data"
+    },
+    {
+      "name": "kubeconfig",
+      "label": "Kubernetes cluster data"
+    },
+    {
+      "name": "oc_login_info",
+      "label": "Connection details for Red Hat OpenShift Container Platform API endpoint."
+    }
+  ],
+  "output_datatypes": [],
+  "input_groups": [
+    {
+      "name": "bastion",
+      "label": "Bastion host variables"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },    
+    {
+      "name": "kubecluster",
+      "label": "ROKS Cluster"
+    },
+    {
+      "name": "mcmhub",
+      "label": "Red Hat OCP connection details of RHACM enabled IBM CP4MCM"
+    }
+  ],
+  "template_input_params": [
+    {
+      "name": "bastion_host",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion host for ssh proxy",
+      "default": "${bastionhost.bastion_host}",
+      "label": "Bastion host",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_port",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion port for ssh proxy",
+      "default": "${bastionhost.bastion_port}",
+      "label": "Bastion port",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_user",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion user for ssh proxy",
+      "default": "${bastionhost.bastion_user}",
+      "label": "Bastion user",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_private_key",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion private key for ssh proxy",
+      "default": "${bastionhost.bastion_private_key}",
+      "label": "Bastion private key",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_password",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion user password for ssh proxy",
+      "default": "${bastionhost.bastion_password}",
+      "label": "Bastion user password",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_host_key",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion host public key for ssh proxy",
+      "default": "${bastionhost.bastion_host_key}",
+      "label": "Bastion host key",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "oc_cli_endpoint",
+      "type": "string",
+      "description": "URL to download the oc cli from. The file must be a tar or tar.gz file.",
+      "default": "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz",
+      "hidden": false,
+      "label": "URL to download the oc cli from",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "general"
+    },     
+    {
+      "name": "ocp_api_endpoint",
+      "type": "string",
+      "description": "Red Hat OCP API Endpoint URL used in oc login command. Example https://api.<>:<port>.",
+      "default": "${oc_login_info.ocp_api_endpoint}",
+      "hidden": false,
+      "label": "Red Hat OpenShift Container Platform API Endpoint URL",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "ocp_user",
+      "type": "string",
+      "description": "Username for connecting to the Red Hat OCP using oc login command. Must provide token or user/password.",
+      "label": "Red Hat OpenShift Container Platform User Name",
+      "default": "${oc_login_info.ocp_user}",
+      "hidden": false,
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "ocp_password",
+      "type": "string",
+      "description": "Password for connecting to the Red Hat OCP using oc login command. Must provide token or user/password.",
+      "label": "Red Hat OpenShift Container Platform User Password",
+      "default": "${oc_login_info.ocp_password}",
+      "hidden": false,
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "ocp_token",
+      "type": "string",
+      "description": "Token for connecting to the Red Hat OCP using oc login command. Must provide token or user/password.",
+      "label": "Red Hat OpenShift Container Platform User Token",
+      "default": "${oc_login_info.ocp_token}",
+      "hidden": false,
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },    
+    {
+      "name": "ocp_ca_cert",
+      "type": "string",
+      "description": "OCP certificate authority certificate to be used in oc login command",
+      "label": "OpenShift Container Platform CA certificate (base64 encoded)",
+      "default": "${oc_login_info.ocp_ca_cert}",
+      "hidden": false,
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "regex": "(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)$",
+      "group_name": "mcmhub"
+    },    
+    {
+      "name": "cluster_name",
+      "type": "string",
+      "description": "Name of the target ROKS cluster within the IBM CP4MCM hub.",
+      "default": "${kubeconfig.cluster_name}",
+      "regex": "(?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)",
+      "regexdesc": "Cluster name can have lower case alphabets, numbers and dash. Must start with lower case alphabet and end with alpha-numeric character. Maximum length is 63 characters.",
+      "hidden": false,
+      "label": "Cluster Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_config",
+      "type": "string",
+      "description": "Cluster config file (kubectl), Base64 encoded",
+      "default": "${kubeconfig.cluster_config}",
+      "hidden": false,
+      "label": "Cluster config",
+      "secured": true,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    }
+  ],
+  "template_output_params": []
+}
