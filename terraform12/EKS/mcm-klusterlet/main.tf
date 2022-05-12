@@ -15,7 +15,8 @@ module "cluster-credentials" {
   access_key_id     = var.access_key_id
   secret_access_key = var.secret_access_key
   cluster_region    = var.aws_region
-
+  kube_ctl_version    = var.kube_ctl_version
+  
   ## Access to optional bastion host
   bastion_host        = var.bastion_host
   bastion_user        = var.bastion_user
@@ -41,6 +42,7 @@ module "cluster-import" {
   ## Details for accessing and importing the target cluster
   cluster_name        = var.cluster_name
   cluster_credentials = module.cluster-credentials.credentials_jsonfile
+  kube_ctl_version    = var.kube_ctl_version
 
   ## Access to optional bastion host
   bastion_host        = var.bastion_host

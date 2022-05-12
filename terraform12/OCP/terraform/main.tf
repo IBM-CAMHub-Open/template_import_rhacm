@@ -8,6 +8,7 @@ module "cluster-credentials" {
 
   cluster_type   = "ocp"
   work_directory = "mcm${random_string.random-dir.result}"
+  kube_ctl_version    = var.kube_ctl_version
 
   ## Details for accessing the target cluster
   cluster_name       = var.cluster_name
@@ -30,7 +31,8 @@ module "cluster-import" {
 
   dependsOn      = module.cluster-credentials.credentials_generated
   work_directory = "mcm${random_string.random-dir.result}"
-
+  kube_ctl_version    = var.kube_ctl_version
+  
   ## Details for accessing the RHACM hub-cluster
   ocp_api_endpoint  = var.ocp_api_endpoint
   ocp_user          = var.ocp_user
