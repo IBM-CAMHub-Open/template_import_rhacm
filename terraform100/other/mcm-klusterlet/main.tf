@@ -12,7 +12,8 @@ module "cluster-import" {
 
   dependsOn      = "no dependencies"
   work_directory = local.work_directory
-
+  kube_ctl_version = var.kube_ctl_version
+  
   ## Details for accessing the RHACM hub-cluster
   ocp_api_endpoint  = var.ocp_api_endpoint
   ocp_user          = var.ocp_user

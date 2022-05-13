@@ -5,10 +5,7 @@
       "name": "bastionhost",
       "label": "Bastion Data"
     },
-    {
-      "name": "general",
-      "label": "General"
-    },    
+   
     {
       "name": "kubeconfig",
       "label": "Kubernetes cluster data"
@@ -24,6 +21,10 @@
       "name": "bastion",
       "label": "Bastion host variables"
     },
+    {
+      "name": "general",
+      "label": "General"
+    },     
     {
       "name": "kubecluster",
       "label": "Kubernetes Cluster"
@@ -208,6 +209,18 @@
       "required": true,
       "immutable": false,
       "group_name": "kubecluster"
+    },
+    {
+      "name": "kube_ctl_version",
+      "type": "string",
+      "description": "The kubectl version to use in import client. For compatibility reasons, this version must match the version in the kubernetes service. The latest client version may not be compatible with the latest kubernetes version used in the server. It is recommended that you set an explicit version.",
+      "hidden": false,
+      "label": "The kubectl version to run import commands. (Explicit version is recommended. Do not leave it as latest. Version format must be vM.m.p eg. v1.23.6)",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster",
+      "default": "latest"
     }
   ],
   "template_output_params": []
