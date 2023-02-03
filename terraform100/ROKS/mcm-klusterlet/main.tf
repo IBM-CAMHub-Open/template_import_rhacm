@@ -4,7 +4,8 @@ resource "random_string" "random-dir" {
 }
 
 module "cluster-credentials" {
-  source  = "git::https://github.com/IBM-CAMHub-Open/template_rhacm_modules.git//cluster_credentials?ref=5.2.0"
+  #source  = "git::https://github.com/IBM-CAMHub-Open/template_rhacm_modules.git//cluster_credentials?ref=5.2.0"
+  source = "git::https://github.com/bhavyabapna/template_rhacm_modules.git//cluster_credentials?ref=bhav-proj"
 
   cluster_type   = "roks"
   work_directory = "mcm${random_string.random-dir.result}"
